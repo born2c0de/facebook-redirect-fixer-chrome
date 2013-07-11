@@ -1,0 +1,31 @@
+{ "background" : {},
+  "content_scripts" : [ { "all_frames" : true,
+        "exclude_globs" : [],
+        "include_globs" : [ "https://www.facebook.com/*",
+            "https://facebook.com/*",
+            "http://www.facebook.com/*",
+            "http://facebook.com/*"
+          ],
+        "js" : [ "includes/fixFacebookRedirect.js" ],
+        "matches" : [ "https://www.facebook.com/*",
+            "https://facebook.com/*",
+            "http://www.facebook.com/*",
+            "http://facebook.com/*"
+          ],
+        "run_at" : "document_start"
+      } ],
+  "content_security_policy" : "script-src 'self'; object-src 'self'",
+  "description" : "Removes redirection of external links on facebook to protect your privacy and improve page load time.",
+  "icons" : { "128" : "icons/logo_64.png" },
+  "manifest_version" : 2,
+  "name" : "Facebook Redirect Fixer",
+  "permissions" : [ "https://www.facebook.com/*",
+      "https://facebook.com/*",
+      "http://www.facebook.com/*",
+      "http://facebook.com/*"
+    ],
+  "version" : "1.0.0.0",
+  "web_accessible_resources" : [ "icons/logo_64.png",
+      "includes/fixFacebookRedirect.js"
+    ]
+}
